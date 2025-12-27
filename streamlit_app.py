@@ -48,5 +48,6 @@ if ingredients_list:
     # Example API call to Smoothiefroot for watermelon nutrition data   
     for fruit in ingredients_list:
         ingredients_string += fruit + ' '
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+        st.subheader(f"Nutritional information for {fruit}")
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit)
         st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
